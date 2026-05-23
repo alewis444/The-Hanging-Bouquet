@@ -107,26 +107,42 @@ function BasketCard({ basket, basketNum, replacements, sowDate, onAccept }) {
   );
 }
 
+function padTo5(flowerList) {
+  if (flowerList.length === 0) return flowerList;
+  const padded = [...flowerList];
+  while (padded.length < 5) padded.push(flowerList[0]);
+  return padded;
+}
+
+function resolveMoodGroup(moodId, season) {
+  const entry = CURATED_BASKETS[moodId]?.[season] || { baskets: [], replacementIds: [] };
+  return {
+    baskets: entry.baskets.map((b) => ({
+      image: b.image,
+      flowers: padTo5(b.flowerIds.map((id) => flowers.find((f) => f.id === id)).filter(Boolean)),
+    })),
+    replacements: entry.replacementIds
+      .map((id) => flowers.find((f) => f.id === id))
+      .filter(Boolean),
+  };
+}
+
 export default function HomePage({ onAccept }) {
   const todayISO = new Date().toISOString().split("T")[0];
-  const [mood, setMood] = useState("pollinator");
+  const [mood, setMood] = useState(null);
   const [sowDate, setSowDate] = useState(todayISO);
 
   const actualSowDate = getActualSowDate(sowDate);
   const season = getSeason(actualSowDate);
 
-  const curatedEntry = CURATED_BASKETS[mood]?.[season] || { baskets: [], replacementIds: [] };
-
-  const resolvedBaskets = curatedEntry.baskets.map((b) => ({
-    image: b.image,
-    flowers: b.flowerIds.map((id) => flowers.find((f) => f.id === id)).filter(Boolean),
-  }));
-
-  const replacements = curatedEntry.replacementIds
-    .map((id) => flowers.find((f) => f.id === id))
-    .filter(Boolean);
-
   const activeMood = moods.find((m) => m.id === mood);
+
+  // When a mood is selected show only that group; otherwise show all moods
+  const moodGroups = mood
+    ? [{ ...moods.find((m) => m.id === mood), ...resolveMoodGroup(mood, season) }]
+    : moods
+        .map((m) => ({ ...m, ...resolveMoodGroup(m.id, season) }))
+        .filter((g) => g.baskets.length > 0);
 
   return (
     <div className="home-page">
@@ -140,7 +156,7 @@ export default function HomePage({ onAccept }) {
           <button
             key={m.id}
             className={`home-mood-tab ${mood === m.id ? "active" : ""}`}
-            onClick={() => setMood(m.id)}
+            onClick={() => setMood((prev) => (prev === m.id ? null : m.id))}
           >
             <span className="home-mood-emoji">{m.emoji}</span>
             <span className="home-mood-label">{m.label}</span>
@@ -177,19 +193,30 @@ export default function HomePage({ onAccept }) {
         </div>
       </div>
 
-      {resolvedBaskets.length === 0 ? (
-        <div className="basket-empty">No baskets available for this mood and season.</div>
+      {moodGroups.length === 0 ? (
+        <div className="basket-empty">No baskets available for this season.</div>
       ) : (
-        <div className="hb-baskets-row">
-          {resolvedBaskets.map((basket, idx) => (
-            <BasketCard
-              key={idx}
-              basket={basket}
-              basketNum={idx + 1}
-              replacements={replacements}
-              sowDate={sowDate}
-              onAccept={(flowerList) => onAccept(flowerList, mood, sowDate)}
-            />
+        <div className="hb-all-groups">
+          {moodGroups.map((group) => (
+            <div key={group.id} className="hb-mood-group">
+              {!mood && (
+                <h3 className="hb-mood-group-label">
+                  {group.emoji} {group.label}
+                </h3>
+              )}
+              <div className="hb-baskets-row">
+                {group.baskets.map((basket, idx) => (
+                  <BasketCard
+                    key={idx}
+                    basket={basket}
+                    basketNum={idx + 1}
+                    replacements={group.replacements}
+                    sowDate={sowDate}
+                    onAccept={(flowerList) => onAccept(flowerList, group.id, sowDate)}
+                  />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       )}
