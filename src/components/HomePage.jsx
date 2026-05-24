@@ -132,6 +132,16 @@ export default function HomePage({ onAccept }) {
   const [mood, setMood] = useState(null);
   const [sowDate, setSowDate] = useState(todayISO);
 
+  useEffect(() => {
+    const root = document.documentElement;
+    if (mood) {
+      root.dataset.theme = mood;
+    } else {
+      delete root.dataset.theme;
+    }
+    return () => { delete root.dataset.theme; };
+  }, [mood]);
+
   const actualSowDate = getActualSowDate(sowDate);
   const season = getSeason(actualSowDate);
 
@@ -198,7 +208,7 @@ export default function HomePage({ onAccept }) {
       ) : (
         <div className="hb-all-groups">
           {moodGroups.map((group) => (
-            <div key={group.id} className="hb-mood-group">
+            <div key={group.id} className="hb-mood-group" data-theme={mood ? undefined : group.id}>
               {!mood && (
                 <h3 className="hb-mood-group-label">
                   {group.emoji} {group.label}

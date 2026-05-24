@@ -132,7 +132,7 @@
     --text-muted:#7a6f68 → #604336 (brown)
 */
 :root {
-  --cream:       var(--color-white-200);
+  --cream:       var(--surface-base);
   --parchment:   var(--color-white-100);
   --blush:       var(--color-peach-100);
   --bark:        var(--color-brown);
