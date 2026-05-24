@@ -56,10 +56,10 @@
 
 /* ── Typography ────────────────────────────────────────── */
 :root {
-  --font-size-xl:        140px;
-  --font-size-l:          90px;
-  --font-size-m:          70px;
-  --font-size-s:          30px;
+  --font-size-xl:        117px;
+  --font-size-l:          75px;
+  --font-size-m:          58px;
+  --font-size-s:          25px;
   --font-weight-regular:  400;
   --font-weight-bold:     700;
 }

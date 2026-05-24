@@ -33,54 +33,50 @@ export default function App() {
 
   return (
     <div className="app">
-      <nav className="tab-nav">
-        <div className="tab-nav-inner">
-          <span className="site-name">🌸 The Hanging Bouquet</span>
-          <div className="tabs">
-            <button
-              className={`tab ${tab === "builder" ? "active" : ""}`}
-              onClick={() => { setTab("builder"); if (step !== STEP_HOME) restart(); }}
-            >
-              Builder
-            </button>
-            <button
-              className={`tab ${tab === "library" ? "active" : ""}`}
-              onClick={() => setTab("library")}
-            >
-              Library
-            </button>
-          </div>
+      <main className="main-content">
+        <h1 className="site-header">The Hanging Bouquet</h1>
+        <div className="tabs">
+          <button
+            className={`tab ${tab === "builder" ? "active" : ""}`}
+            onClick={() => { setTab("builder"); if (step !== STEP_HOME) restart(); }}
+          >
+            Builder
+          </button>
+          <button
+            className={`tab ${tab === "library" ? "active" : ""}`}
+            onClick={() => setTab("library")}
+          >
+            Library
+          </button>
         </div>
-      </nav>
 
-      {tab === "library" ? (
-        <main className="main-content">
+        {tab === "library" ? (
           <Library />
-        </main>
-      ) : (
-        <main className="main-content">
-          {step === STEP_HOME && (
-            <HomePage onAccept={handleAccept} />
-          )}
-          {step === STEP_SCHEDULE && acceptedBasket && (
-            <GrowScheduleStep
-              basket={acceptedBasket}
-              zone={ZONE}
-              sowDate={acceptedSowDate}
-              mood={acceptedMood}
-              onNext={() => setStep(STEP_CONGRATS)}
-              onBack={() => setStep(STEP_HOME)}
-            />
-          )}
-          {step === STEP_CONGRATS && acceptedBasket && (
-            <Congratulations
-              basket={acceptedBasket}
-              sowDate={acceptedSowDate}
-              onRestart={restart}
-            />
-          )}
-        </main>
-      )}
+        ) : (
+          <>
+            {step === STEP_HOME && (
+              <HomePage onAccept={handleAccept} />
+            )}
+            {step === STEP_SCHEDULE && acceptedBasket && (
+              <GrowScheduleStep
+                basket={acceptedBasket}
+                zone={ZONE}
+                sowDate={acceptedSowDate}
+                mood={acceptedMood}
+                onNext={() => setStep(STEP_CONGRATS)}
+                onBack={() => setStep(STEP_HOME)}
+              />
+            )}
+            {step === STEP_CONGRATS && acceptedBasket && (
+              <Congratulations
+                basket={acceptedBasket}
+                sowDate={acceptedSowDate}
+                onRestart={restart}
+              />
+            )}
+          </>
+        )}
+      </main>
     </div>
   );
 }
