@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import { flowers, FLOWER_IMAGES } from "../data/flowers";
 import { CURATED_BASKETS } from "../data/curatedBaskets";
 import { moods } from "../data/moods";
@@ -127,10 +128,10 @@ function resolveMoodGroup(moodId, season) {
   };
 }
 
-export default function HomePage({ onAccept }) {
+export default function HomePage({ onAccept, initialMood = null, initialSowDate = null }) {
   const todayISO = new Date().toISOString().split("T")[0];
-  const [mood, setMood] = useState(null);
-  const [sowDate, setSowDate] = useState(todayISO);
+  const [mood, setMood] = useState(initialMood);
+  const [sowDate, setSowDate] = useState(initialSowDate || todayISO);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -161,18 +162,23 @@ export default function HomePage({ onAccept }) {
         <span className="home-zone-sub">Season-matched basket recommendations for your grow zone</span>
       </div>
 
-      <div className="home-mood-tabs">
+      <ToggleGroup.Root
+        type="single"
+        value={mood ?? ""}
+        onValueChange={(val) => setMood(val || null)}
+        className="home-mood-tabs"
+      >
         {moods.map((m) => (
-          <button
+          <ToggleGroup.Item
             key={m.id}
-            className={`home-mood-tab ${mood === m.id ? "active" : ""}`}
-            onClick={() => setMood((prev) => (prev === m.id ? null : m.id))}
+            value={m.id}
+            className="home-mood-tab"
           >
             <span className="home-mood-emoji">{m.emoji}</span>
             <span className="home-mood-label">{m.label}</span>
-          </button>
+          </ToggleGroup.Item>
         ))}
-      </div>
+      </ToggleGroup.Root>
 
       {activeMood && (
         <p className="home-mood-tagline">{activeMood.tagline}</p>
