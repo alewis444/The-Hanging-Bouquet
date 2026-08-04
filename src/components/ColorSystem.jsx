@@ -105,7 +105,7 @@ function Swatch({ color, label, sub }) {
         {color}
       </span>
       {sub && (
-        <span style={{ fontSize: 11, color: "var(--color-gray)" }}>{sub}</span>
+        <span style={{ fontSize: 11, color: "var(--color-brown)" }}>{sub}</span>
       )}
     </div>
   );
@@ -138,11 +138,11 @@ function ThemeRow({ theme }) {
           <span style={{ fontSize: 11, color: "var(--color-brown)", fontFamily: "monospace" }}>
             {theme.surface}
           </span>
-          <span style={{ fontSize: 11, color: "var(--color-gray)" }}>surface</span>
+          <span style={{ fontSize: 11, color: "var(--color-brown)" }}>surface</span>
           <span style={{ fontSize: 11, color: "var(--color-brown)", fontFamily: "monospace", marginLeft: 16 }}>
             {theme.interactive}
           </span>
-          <span style={{ fontSize: 11, color: "var(--color-gray)" }}>interactive</span>
+          <span style={{ fontSize: 11, color: "var(--color-brown)" }}>interactive</span>
         </div>
       </div>
     </div>
@@ -191,7 +191,7 @@ export default function ColorSystem() {
               <div style={{ display: "flex", gap: 16, alignItems: "baseline", marginBottom: 4 }}>
                 <span style={{ fontSize: 14, fontWeight: 700, color: "var(--color-maroon)" }}>{font.family}</span>
                 <span style={{ fontSize: 12, color: "var(--color-brown)" }}>{font.role}</span>
-                <span style={{ fontSize: 11, color: "var(--color-gray)", fontStyle: "italic" }}>{font.usedFor}</span>
+                <span style={{ fontSize: 11, color: "var(--color-brown)", fontStyle: "italic" }}>{font.usedFor}</span>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 8, paddingLeft: 12, borderLeft: "2px solid var(--color-peach-100)" }}>
                 {font.samples.map((s) => (
@@ -208,7 +208,7 @@ export default function ColorSystem() {
                     >
                       The Hanging Bouquet
                     </span>
-                    <span style={{ fontSize: 11, color: "var(--color-gray)", fontFamily: "monospace", whiteSpace: "nowrap" }}>
+                    <span style={{ fontSize: 11, color: "var(--color-brown)", fontFamily: "monospace", whiteSpace: "nowrap" }}>
                       {s.size} / {s.weight} — {s.label}
                     </span>
                   </div>

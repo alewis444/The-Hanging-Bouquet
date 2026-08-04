@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
+import * as Popover from "@radix-ui/react-popover";
 import { flowers, FLOWER_IMAGES } from "../data/flowers";
 import { CURATED_BASKETS } from "../data/curatedBaskets";
 import { moods } from "../data/moods";
@@ -10,7 +11,6 @@ const ROLE_LABEL = { upright: "Thriller", mounder: "Filler", trailer: "Spiller" 
 const SEASON_EMOJI = { spring: "🌱", summer: "☀️", autumn: "🍂", winter: "❄️" };
 
 function FlowerRow({ flower, replacements, onSwap }) {
-  const [open, setOpen] = useState(false);
   const sameRoleBackups = replacements.filter((r) => r.role === flower.role);
 
   return (
@@ -25,29 +25,31 @@ function FlowerRow({ flower, replacements, onSwap }) {
         <span className={`role-badge role-${flower.role}`}>{ROLE_LABEL[flower.role]}</span>
         <span className="hb-flower-name">{flower.name}</span>
         {sameRoleBackups.length > 0 && (
-          <button className="hb-swap-btn" onClick={() => setOpen((v) => !v)} title="Swap flower">⇄</button>
+          <Popover.Root>
+            <Popover.Trigger className="hb-swap-btn" title="Swap flower">⇄</Popover.Trigger>
+            <Popover.Portal>
+              <Popover.Content className="hb-swap-dropdown" side="bottom" align="end" sideOffset={4}>
+                <p className="hb-swap-hint">Swap with:</p>
+                {sameRoleBackups.map((b) => (
+                  <Popover.Close
+                    key={b.id}
+                    className="hb-swap-option"
+                    onClick={() => onSwap(flower.id, b)}
+                  >
+                    <img
+                      src={FLOWER_IMAGES[b.id]}
+                      alt={b.name}
+                      className="hb-swap-thumb"
+                      onError={(e) => { e.target.style.display = "none"; }}
+                    />
+                    <span>{b.name}</span>
+                  </Popover.Close>
+                ))}
+              </Popover.Content>
+            </Popover.Portal>
+          </Popover.Root>
         )}
       </div>
-      {open && (
-        <div className="hb-swap-dropdown">
-          <p className="hb-swap-hint">Swap with:</p>
-          {sameRoleBackups.map((b) => (
-            <button
-              key={b.id}
-              className="hb-swap-option"
-              onClick={() => { onSwap(flower.id, b); setOpen(false); }}
-            >
-              <img
-                src={FLOWER_IMAGES[b.id]}
-                alt={b.name}
-                className="hb-swap-thumb"
-                onError={(e) => { e.target.style.display = "none"; }}
-              />
-              <span>{b.name}</span>
-            </button>
-          ))}
-        </div>
-      )}
     </div>
   );
 }

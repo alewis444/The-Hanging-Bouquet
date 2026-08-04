@@ -1291,10 +1291,10 @@
   background: var(--parchment);
 }
 
-/* .home-mood-tab:focus-visible {
+ .home-mood-tab:focus-visible {
   outline: 2px solid var(--green);
   outline-offset: 2px;
-} */
+} 
 
 
 .home-mood-tab[data-state="on"] {
@@ -1463,6 +1463,11 @@
   transition: border-color 0.15s;
 }
 
+.hb-swap-btn:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
 .hb-swap-btn:hover {
   border-color: var(--green);
   color: var(--green);
@@ -1473,8 +1478,8 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 8px;
-  margin: 4px 0 8px 44px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 50;
 }
 
 .hb-swap-hint {
