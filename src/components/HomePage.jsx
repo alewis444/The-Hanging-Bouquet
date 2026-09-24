@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import * as ToggleGroup from "@radix-ui/react-toggle-group";
+import * as Popover from "@radix-ui/react-popover";
 import { flowers, FLOWER_IMAGES } from "../data/flowers";
 import { CURATED_BASKETS } from "../data/curatedBaskets";
 import { moods } from "../data/moods";
@@ -9,7 +11,6 @@ const ROLE_LABEL = { upright: "Thriller", mounder: "Filler", trailer: "Spiller" 
 const SEASON_EMOJI = { spring: "🌱", summer: "☀️", autumn: "🍂", winter: "❄️" };
 
 function FlowerRow({ flower, replacements, onSwap }) {
-  const [open, setOpen] = useState(false);
   const sameRoleBackups = replacements.filter((r) => r.role === flower.role);
 
   return (
@@ -24,29 +25,31 @@ function FlowerRow({ flower, replacements, onSwap }) {
         <span className={`role-badge role-${flower.role}`}>{ROLE_LABEL[flower.role]}</span>
         <span className="hb-flower-name">{flower.name}</span>
         {sameRoleBackups.length > 0 && (
-          <button className="hb-swap-btn" onClick={() => setOpen((v) => !v)} title="Swap flower">⇄</button>
+          <Popover.Root>
+            <Popover.Trigger className="hb-swap-btn" title="Swap flower">⇄</Popover.Trigger>
+            <Popover.Portal>
+              <Popover.Content className="hb-swap-dropdown" side="bottom" align="end" sideOffset={4}>
+                <p className="hb-swap-hint">Swap with:</p>
+                {sameRoleBackups.map((b) => (
+                  <Popover.Close
+                    key={b.id}
+                    className="hb-swap-option"
+                    onClick={() => onSwap(flower.id, b)}
+                  >
+                    <img
+                      src={FLOWER_IMAGES[b.id]}
+                      alt={b.name}
+                      className="hb-swap-thumb"
+                      onError={(e) => { e.target.style.display = "none"; }}
+                    />
+                    <span>{b.name}</span>
+                  </Popover.Close>
+                ))}
+              </Popover.Content>
+            </Popover.Portal>
+          </Popover.Root>
         )}
       </div>
-      {open && (
-        <div className="hb-swap-dropdown">
-          <p className="hb-swap-hint">Swap with:</p>
-          {sameRoleBackups.map((b) => (
-            <button
-              key={b.id}
-              className="hb-swap-option"
-              onClick={() => { onSwap(flower.id, b); setOpen(false); }}
-            >
-              <img
-                src={FLOWER_IMAGES[b.id]}
-                alt={b.name}
-                className="hb-swap-thumb"
-                onError={(e) => { e.target.style.display = "none"; }}
-              />
-              <span>{b.name}</span>
-            </button>
-          ))}
-        </div>
-      )}
     </div>
   );
 }
@@ -127,10 +130,20 @@ function resolveMoodGroup(moodId, season) {
   };
 }
 
-export default function HomePage({ onAccept }) {
+export default function HomePage({ onAccept, initialMood = null, initialSowDate = null }) {
   const todayISO = new Date().toISOString().split("T")[0];
-  const [mood, setMood] = useState(null);
-  const [sowDate, setSowDate] = useState(todayISO);
+  const [mood, setMood] = useState(initialMood);
+  const [sowDate, setSowDate] = useState(initialSowDate || todayISO);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (mood) {
+      root.dataset.theme = mood;
+    } else {
+      delete root.dataset.theme;
+    }
+    return () => { delete root.dataset.theme; };
+  }, [mood]);
 
   const actualSowDate = getActualSowDate(sowDate);
   const season = getSeason(actualSowDate);
@@ -151,18 +164,23 @@ export default function HomePage({ onAccept }) {
         <span className="home-zone-sub">Season-matched basket recommendations for your grow zone</span>
       </div>
 
-      <div className="home-mood-tabs">
+      <ToggleGroup.Root
+        type="single"
+        value={mood ?? ""}
+        onValueChange={(val) => setMood(val || null)}
+        className="home-mood-tabs"
+      >
         {moods.map((m) => (
-          <button
+          <ToggleGroup.Item
             key={m.id}
-            className={`home-mood-tab ${mood === m.id ? "active" : ""}`}
-            onClick={() => setMood((prev) => (prev === m.id ? null : m.id))}
+            value={m.id}
+            className="home-mood-tab"
           >
             <span className="home-mood-emoji">{m.emoji}</span>
             <span className="home-mood-label">{m.label}</span>
-          </button>
+          </ToggleGroup.Item>
         ))}
-      </div>
+      </ToggleGroup.Root>
 
       {activeMood && (
         <p className="home-mood-tagline">{activeMood.tagline}</p>
@@ -198,7 +216,7 @@ export default function HomePage({ onAccept }) {
       ) : (
         <div className="hb-all-groups">
           {moodGroups.map((group) => (
-            <div key={group.id} className="hb-mood-group">
+            <div key={group.id} className="hb-mood-group" data-theme={mood ? undefined : group.id}>
               {!mood && (
                 <h3 className="hb-mood-group-label">
                   {group.emoji} {group.label}

@@ -1,0 +1,631 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: 🌸 The Hanging Bouquet
+      - generic [ref=e7]:
+        - button "Builder" [ref=e8] [cursor=pointer]
+        - button "Library" [ref=e9] [cursor=pointer]
+  - main [ref=e10]:
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e13]: Zones 9–10
+        - generic [ref=e14]: Season-matched basket recommendations for your grow zone
+      - generic [ref=e15]:
+        - button "🐝 Pollinator" [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]: 🐝
+          - generic [ref=e18]: Pollinator
+        - button "🌸 Romantic" [ref=e19] [cursor=pointer]:
+          - generic [ref=e20]: 🌸
+          - generic [ref=e21]: Romantic
+        - button "🌿 Wild" [ref=e22] [cursor=pointer]:
+          - generic [ref=e23]: 🌿
+          - generic [ref=e24]: Wild
+        - button "🌾 Apothecary" [ref=e25] [cursor=pointer]:
+          - generic [ref=e26]: 🌾
+          - generic [ref=e27]: Apothecary
+        - button "🌑 Moody" [ref=e28] [cursor=pointer]:
+          - generic [ref=e29]: 🌑
+          - generic [ref=e30]: Moody
+        - button "🌻 Joyful" [ref=e31] [cursor=pointer]:
+          - generic [ref=e32]: 🌻
+          - generic [ref=e33]: Joyful
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - generic [ref=e36]: Sow date
+          - textbox [ref=e37]: 2026-05-10
+        - generic [ref=e38]: → +7 days shipping
+        - generic [ref=e39]:
+          - generic [ref=e40]: Plant date
+          - textbox [ref=e41]: May 17, 2026
+        - generic [ref=e42]: 🌱 Spring
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - heading "🐝 Pollinator" [level=3] [ref=e45]
+          - generic [ref=e46]:
+            - generic [ref=e47]:
+              - img "Basket 1" [ref=e48]
+              - generic [ref=e49]:
+                - generic [ref=e50]: Basket 1
+                - generic [ref=e51]: 5 flowers
+              - generic [ref=e52]:
+                - generic [ref=e54]:
+                  - img "Verbena" [ref=e55]
+                  - generic [ref=e56]: Thriller
+                  - generic [ref=e57]: Verbena
+                  - button "⇄" [ref=e58] [cursor=pointer]
+                - generic [ref=e60]:
+                  - img "Gomphrena Sequin" [ref=e61]
+                  - generic [ref=e62]: Filler
+                  - generic [ref=e63]: Gomphrena Sequin
+                  - button "⇄" [ref=e64] [cursor=pointer]
+                - generic [ref=e66]:
+                  - img "Annual Phlox Dwarf Mix" [ref=e67]
+                  - generic [ref=e68]: Filler
+                  - generic [ref=e69]: Annual Phlox Dwarf Mix
+                  - button "⇄" [ref=e70] [cursor=pointer]
+                - generic [ref=e72]:
+                  - img "Petunia Easy Wave® Blue" [ref=e73]
+                  - generic [ref=e74]: Spiller
+                  - generic [ref=e75]: Petunia Easy Wave® Blue
+                - generic [ref=e77]:
+                  - img "Sweet Alyssum" [ref=e78]
+                  - generic [ref=e79]: Spiller
+                  - generic [ref=e80]: Sweet Alyssum
+              - generic [ref=e81]:
+                - generic [ref=e82]:
+                  - generic [ref=e83]: Verbena
+                  - generic [ref=e84]: → August 23, 2026
+                - generic [ref=e85]:
+                  - generic [ref=e86]: Gomphrena Sequin
+                  - generic [ref=e87]: → August 2, 2026
+                - generic [ref=e88]:
+                  - generic [ref=e89]: Annual Phlox Dwarf Mix
+                  - generic [ref=e90]: → July 19, 2026
+                - generic [ref=e91]:
+                  - generic [ref=e92]: Petunia Easy Wave® Blue
+                  - generic [ref=e93]: → August 2, 2026
+                - generic [ref=e94]:
+                  - generic [ref=e95]: Sweet Alyssum
+                  - generic [ref=e96]: → July 5, 2026
+              - button "Accept Basket 1 →" [ref=e97] [cursor=pointer]
+            - generic [ref=e98]:
+              - img "Basket 2" [ref=e99]
+              - generic [ref=e100]:
+                - generic [ref=e101]: Basket 2
+                - generic [ref=e102]: 5 flowers
+              - generic [ref=e103]:
+                - generic [ref=e105]:
+                  - img "Statice Pastel Mix" [ref=e106]
+                  - generic [ref=e107]: Thriller
+                  - generic [ref=e108]: Statice Pastel Mix
+                  - button "⇄" [ref=e109] [cursor=pointer]
+                - generic [ref=e111]:
+                  - img "Gomphrena Strawberry Fair" [ref=e112]
+                  - generic [ref=e113]: Filler
+                  - generic [ref=e114]: Gomphrena Strawberry Fair
+                  - button "⇄" [ref=e115] [cursor=pointer]
+                - generic [ref=e117]:
+                  - img "Zinnia Linearis Mix" [ref=e118]
+                  - generic [ref=e119]: Filler
+                  - generic [ref=e120]: Zinnia Linearis Mix
+                  - button "⇄" [ref=e121] [cursor=pointer]
+                - generic [ref=e123]:
+                  - img "Morning Glory Heavenly Blue" [ref=e124]
+                  - generic [ref=e125]: Spiller
+                  - generic [ref=e126]: Morning Glory Heavenly Blue
+                - generic [ref=e128]:
+                  - img "Morning Glory Scarlet O'Hara (Pink)" [ref=e129]
+                  - generic [ref=e130]: Spiller
+                  - generic [ref=e131]: Morning Glory Scarlet O'Hara (Pink)
+              - generic [ref=e132]:
+                - generic [ref=e133]:
+                  - generic [ref=e134]: Statice Pastel Mix
+                  - generic [ref=e135]: → August 2, 2026
+                - generic [ref=e136]:
+                  - generic [ref=e137]: Gomphrena Strawberry Fair
+                  - generic [ref=e138]: → August 2, 2026
+                - generic [ref=e139]:
+                  - generic [ref=e140]: Zinnia Linearis Mix
+                  - generic [ref=e141]: → July 12, 2026
+                - generic [ref=e142]:
+                  - generic [ref=e143]: Morning Glory Heavenly Blue
+                  - generic [ref=e144]: → July 26, 2026
+                - generic [ref=e145]:
+                  - generic [ref=e146]: Morning Glory Scarlet O'Hara (Pink)
+                  - generic [ref=e147]: → July 26, 2026
+              - button "Accept Basket 2 →" [ref=e148] [cursor=pointer]
+            - generic [ref=e149]:
+              - img "Basket 3" [ref=e150]
+              - generic [ref=e151]:
+                - generic [ref=e152]: Basket 3
+                - generic [ref=e153]: 4 flowers
+              - generic [ref=e154]:
+                - generic [ref=e156]:
+                  - img "Salvia Victoria Blue" [ref=e157]
+                  - generic [ref=e158]: Thriller
+                  - generic [ref=e159]: Salvia Victoria Blue
+                  - button "⇄" [ref=e160] [cursor=pointer]
+                - generic [ref=e162]:
+                  - img "Marigold Yellow (Petite Gold)" [ref=e163]
+                  - generic [ref=e164]: Filler
+                  - generic [ref=e165]: Marigold Yellow (Petite Gold)
+                  - button "⇄" [ref=e166] [cursor=pointer]
+                - generic [ref=e168]:
+                  - img "Cosmos Dwarf Early Rose" [ref=e169]
+                  - generic [ref=e170]: Filler
+                  - generic [ref=e171]: Cosmos Dwarf Early Rose
+                  - button "⇄" [ref=e172] [cursor=pointer]
+                - generic [ref=e174]:
+                  - img "Lobelia Starship Rose" [ref=e175]
+                  - generic [ref=e176]: Spiller
+                  - generic [ref=e177]: Lobelia Starship Rose
+              - generic [ref=e178]:
+                - generic [ref=e179]:
+                  - generic [ref=e180]: Salvia Victoria Blue
+                  - generic [ref=e181]: → August 16, 2026
+                - generic [ref=e182]:
+                  - generic [ref=e183]: Marigold Yellow (Petite Gold)
+                  - generic [ref=e184]: → July 12, 2026
+                - generic [ref=e185]:
+                  - generic [ref=e186]: Cosmos Dwarf Early Rose
+                  - generic [ref=e187]: → July 19, 2026
+                - generic [ref=e188]:
+                  - generic [ref=e189]: Lobelia Starship Rose
+                  - generic [ref=e190]: → August 16, 2026
+              - button "Accept Basket 3 →" [ref=e191] [cursor=pointer]
+        - generic [ref=e192]:
+          - heading "🌸 Romantic" [level=3] [ref=e193]
+          - generic [ref=e194]:
+            - generic [ref=e195]:
+              - img "Basket 1" [ref=e196]
+              - generic [ref=e197]:
+                - generic [ref=e198]: Basket 1
+                - generic [ref=e199]: 5 flowers
+              - generic [ref=e200]:
+                - generic [ref=e202]:
+                  - img "Statice Apricot Beauty" [ref=e203]
+                  - generic [ref=e204]: Thriller
+                  - generic [ref=e205]: Statice Apricot Beauty
+                  - button "⇄" [ref=e206] [cursor=pointer]
+                - generic [ref=e208]:
+                  - img "Gomphrena Sequin" [ref=e209]
+                  - generic [ref=e210]: Filler
+                  - generic [ref=e211]: Gomphrena Sequin
+                  - button "⇄" [ref=e212] [cursor=pointer]
+                - generic [ref=e214]:
+                  - img "Impatiens Beacon Mix" [ref=e215]
+                  - generic [ref=e216]: Filler
+                  - generic [ref=e217]: Impatiens Beacon Mix
+                  - button "⇄" [ref=e218] [cursor=pointer]
+                - generic [ref=e220]:
+                  - img "Petunia Easy Wave® Burgundy Velour" [ref=e221]
+                  - generic [ref=e222]: Spiller
+                  - generic [ref=e223]: Petunia Easy Wave® Burgundy Velour
+                  - button "⇄" [ref=e224] [cursor=pointer]
+                - generic [ref=e226]:
+                  - img "Petunia Easy Wave® Blue" [ref=e227]
+                  - generic [ref=e228]: Spiller
+                  - generic [ref=e229]: Petunia Easy Wave® Blue
+                  - button "⇄" [ref=e230] [cursor=pointer]
+              - generic [ref=e231]:
+                - generic [ref=e232]:
+                  - generic [ref=e233]: Statice Apricot Beauty
+                  - generic [ref=e234]: → August 2, 2026
+                - generic [ref=e235]:
+                  - generic [ref=e236]: Gomphrena Sequin
+                  - generic [ref=e237]: → August 2, 2026
+                - generic [ref=e238]:
+                  - generic [ref=e239]: Impatiens Beacon Mix
+                  - generic [ref=e240]: → August 2, 2026
+                - generic [ref=e241]:
+                  - generic [ref=e242]: Petunia Easy Wave® Burgundy Velour
+                  - generic [ref=e243]: → August 2, 2026
+                - generic [ref=e244]:
+                  - generic [ref=e245]: Petunia Easy Wave® Blue
+                  - generic [ref=e246]: → August 2, 2026
+              - button "Accept Basket 1 →" [ref=e247] [cursor=pointer]
+            - generic [ref=e248]:
+              - img "Basket 2" [ref=e249]
+              - generic [ref=e250]:
+                - generic [ref=e251]: Basket 2
+                - generic [ref=e252]: 5 flowers
+              - generic [ref=e253]:
+                - generic [ref=e255]:
+                  - img "Daisy Shasta" [ref=e256]
+                  - generic [ref=e257]: Thriller
+                  - generic [ref=e258]: Daisy Shasta
+                  - button "⇄" [ref=e259] [cursor=pointer]
+                - generic [ref=e261]:
+                  - img "Annual Phlox Dwarf Mix" [ref=e262]
+                  - generic [ref=e263]: Filler
+                  - generic [ref=e264]: Annual Phlox Dwarf Mix
+                  - button "⇄" [ref=e265] [cursor=pointer]
+                - generic [ref=e267]:
+                  - img "Cosmos Dwarf Early Rose" [ref=e268]
+                  - generic [ref=e269]: Filler
+                  - generic [ref=e270]: Cosmos Dwarf Early Rose
+                  - button "⇄" [ref=e271] [cursor=pointer]
+                - generic [ref=e273]:
+                  - img "Lobelia Starship Rose" [ref=e274]
+                  - generic [ref=e275]: Spiller
+                  - generic [ref=e276]: Lobelia Starship Rose
+                  - button "⇄" [ref=e277] [cursor=pointer]
+                - generic [ref=e279]:
+                  - img "Lobelia Palace White" [ref=e280]
+                  - generic [ref=e281]: Spiller
+                  - generic [ref=e282]: Lobelia Palace White
+                  - button "⇄" [ref=e283] [cursor=pointer]
+              - generic [ref=e284]:
+                - generic [ref=e285]:
+                  - generic [ref=e286]: Daisy Shasta
+                  - generic [ref=e287]: → August 2, 2026
+                - generic [ref=e288]:
+                  - generic [ref=e289]: Annual Phlox Dwarf Mix
+                  - generic [ref=e290]: → July 19, 2026
+                - generic [ref=e291]:
+                  - generic [ref=e292]: Cosmos Dwarf Early Rose
+                  - generic [ref=e293]: → July 19, 2026
+                - generic [ref=e294]:
+                  - generic [ref=e295]: Lobelia Starship Rose
+                  - generic [ref=e296]: → August 16, 2026
+                - generic [ref=e297]:
+                  - generic [ref=e298]: Lobelia Palace White
+                  - generic [ref=e299]: → August 16, 2026
+              - button "Accept Basket 2 →" [ref=e300] [cursor=pointer]
+            - generic [ref=e301]:
+              - img "Basket 3" [ref=e302]
+              - generic [ref=e303]:
+                - generic [ref=e304]: Basket 3
+                - generic [ref=e305]: 5 flowers
+              - generic [ref=e306]:
+                - generic [ref=e308]:
+                  - img "Statice Pastel Mix" [ref=e309]
+                  - generic [ref=e310]: Thriller
+                  - generic [ref=e311]: Statice Pastel Mix
+                  - button "⇄" [ref=e312] [cursor=pointer]
+                - generic [ref=e314]:
+                  - img "Daisy Ice Plant Livingstone Pastel" [ref=e315]
+                  - generic [ref=e316]: Filler
+                  - generic [ref=e317]: Daisy Ice Plant Livingstone Pastel
+                  - button "⇄" [ref=e318] [cursor=pointer]
+                - generic [ref=e320]:
+                  - img "Impatiens Beacon Coral" [ref=e321]
+                  - generic [ref=e322]: Filler
+                  - generic [ref=e323]: Impatiens Beacon Coral
+                  - button "⇄" [ref=e324] [cursor=pointer]
+                - generic [ref=e326]:
+                  - img "Morning Glory Grandpa Ott (Purple)" [ref=e327]
+                  - generic [ref=e328]: Spiller
+                  - generic [ref=e329]: Morning Glory Grandpa Ott (Purple)
+                  - button "⇄" [ref=e330] [cursor=pointer]
+                - generic [ref=e332]:
+                  - img "Morning Glory Scarlet O'Hara (Pink)" [ref=e333]
+                  - generic [ref=e334]: Spiller
+                  - generic [ref=e335]: Morning Glory Scarlet O'Hara (Pink)
+                  - button "⇄" [ref=e336] [cursor=pointer]
+              - generic [ref=e337]:
+                - generic [ref=e338]:
+                  - generic [ref=e339]: Statice Pastel Mix
+                  - generic [ref=e340]: → August 2, 2026
+                - generic [ref=e341]:
+                  - generic [ref=e342]: Daisy Ice Plant Livingstone Pastel
+                  - generic [ref=e343]: → July 19, 2026
+                - generic [ref=e344]:
+                  - generic [ref=e345]: Impatiens Beacon Coral
+                  - generic [ref=e346]: → August 2, 2026
+                - generic [ref=e347]:
+                  - generic [ref=e348]: Morning Glory Grandpa Ott (Purple)
+                  - generic [ref=e349]: → July 26, 2026
+                - generic [ref=e350]:
+                  - generic [ref=e351]: Morning Glory Scarlet O'Hara (Pink)
+                  - generic [ref=e352]: → July 26, 2026
+              - button "Accept Basket 3 →" [ref=e353] [cursor=pointer]
+        - generic [ref=e354]:
+          - heading "🌿 Wild" [level=3] [ref=e355]
+          - generic [ref=e356]:
+            - generic [ref=e357]:
+              - img "Basket 1" [ref=e358]
+              - generic [ref=e359]:
+                - generic [ref=e360]: Basket 1
+                - generic [ref=e361]: 5 flowers
+              - generic [ref=e362]:
+                - generic [ref=e364]:
+                  - img "Verbena" [ref=e365]
+                  - generic [ref=e366]: Thriller
+                  - generic [ref=e367]: Verbena
+                - generic [ref=e369]:
+                  - img "Zinnia Double Zahara™ Fire" [ref=e370]
+                  - generic [ref=e371]: Filler
+                  - generic [ref=e372]: Zinnia Double Zahara™ Fire
+                  - button "⇄" [ref=e373] [cursor=pointer]
+                - generic [ref=e375]:
+                  - img "Cosmos Dwarf Early Rose" [ref=e376]
+                  - generic [ref=e377]: Filler
+                  - generic [ref=e378]: Cosmos Dwarf Early Rose
+                  - button "⇄" [ref=e379] [cursor=pointer]
+                - generic [ref=e381]:
+                  - img "Portulaca Happy Trails™" [ref=e382]
+                  - generic [ref=e383]: Spiller
+                  - generic [ref=e384]: Portulaca Happy Trails™
+                - generic [ref=e386]:
+                  - img "Sweet Alyssum" [ref=e387]
+                  - generic [ref=e388]: Spiller
+                  - generic [ref=e389]: Sweet Alyssum
+              - generic [ref=e390]:
+                - generic [ref=e391]:
+                  - generic [ref=e392]: Verbena
+                  - generic [ref=e393]: → August 23, 2026
+                - generic [ref=e394]:
+                  - generic [ref=e395]: Zinnia Double Zahara™ Fire
+                  - generic [ref=e396]: → July 19, 2026
+                - generic [ref=e397]:
+                  - generic [ref=e398]: Cosmos Dwarf Early Rose
+                  - generic [ref=e399]: → July 19, 2026
+                - generic [ref=e400]:
+                  - generic [ref=e401]: Portulaca Happy Trails™
+                  - generic [ref=e402]: → July 19, 2026
+                - generic [ref=e403]:
+                  - generic [ref=e404]: Sweet Alyssum
+                  - generic [ref=e405]: → July 5, 2026
+              - button "Accept Basket 1 →" [ref=e406] [cursor=pointer]
+            - generic [ref=e407]:
+              - img "Basket 2" [ref=e408]
+              - generic [ref=e409]:
+                - generic [ref=e410]: Basket 2
+                - generic [ref=e411]: 3 flowers
+              - generic [ref=e412]:
+                - generic [ref=e414]:
+                  - img "Zinnia Linearis Mix" [ref=e415]
+                  - generic [ref=e416]: Filler
+                  - generic [ref=e417]: Zinnia Linearis Mix
+                  - button "⇄" [ref=e418] [cursor=pointer]
+                - generic [ref=e420]:
+                  - img "Daisy Ice Plant Livingstone Pastel" [ref=e421]
+                  - generic [ref=e422]: Filler
+                  - generic [ref=e423]: Daisy Ice Plant Livingstone Pastel
+                  - button "⇄" [ref=e424] [cursor=pointer]
+                - generic [ref=e426]:
+                  - img "Lobelia Scarlet Bronze Leaf" [ref=e427]
+                  - generic [ref=e428]: Spiller
+                  - generic [ref=e429]: Lobelia Scarlet Bronze Leaf
+              - generic [ref=e430]:
+                - generic [ref=e431]:
+                  - generic [ref=e432]: Zinnia Linearis Mix
+                  - generic [ref=e433]: → July 12, 2026
+                - generic [ref=e434]:
+                  - generic [ref=e435]: Daisy Ice Plant Livingstone Pastel
+                  - generic [ref=e436]: → July 19, 2026
+                - generic [ref=e437]:
+                  - generic [ref=e438]: Lobelia Scarlet Bronze Leaf
+                  - generic [ref=e439]: → August 16, 2026
+              - button "Accept Basket 2 →" [ref=e440] [cursor=pointer]
+        - generic [ref=e441]:
+          - heading "🌾 Apothecary" [level=3] [ref=e442]
+          - generic [ref=e443]:
+            - generic [ref=e444]:
+              - img "Basket 1" [ref=e445]
+              - generic [ref=e446]:
+                - generic [ref=e447]: Basket 1
+                - generic [ref=e448]: 5 flowers
+              - generic [ref=e449]:
+                - generic [ref=e451]:
+                  - img "Celosia Sunday™ Mix" [ref=e452]
+                  - generic [ref=e453]: Thriller
+                  - generic [ref=e454]: Celosia Sunday™ Mix
+                  - button "⇄" [ref=e455] [cursor=pointer]
+                - generic [ref=e457]:
+                  - img "Gomphrena Sequin" [ref=e458]
+                  - generic [ref=e459]: Filler
+                  - generic [ref=e460]: Gomphrena Sequin
+                - generic [ref=e462]:
+                  - img "Strawflower King Size Orange" [ref=e463]
+                  - generic [ref=e464]: Filler
+                  - generic [ref=e465]: Strawflower King Size Orange
+                - generic [ref=e467]:
+                  - img "Sweet Alyssum" [ref=e468]
+                  - generic [ref=e469]: Spiller
+                  - generic [ref=e470]: Sweet Alyssum
+                - generic [ref=e472]:
+                  - img "Lobelia Palace White" [ref=e473]
+                  - generic [ref=e474]: Spiller
+                  - generic [ref=e475]: Lobelia Palace White
+              - generic [ref=e476]:
+                - generic [ref=e477]:
+                  - generic [ref=e478]: Celosia Sunday™ Mix
+                  - generic [ref=e479]: → August 2, 2026
+                - generic [ref=e480]:
+                  - generic [ref=e481]: Gomphrena Sequin
+                  - generic [ref=e482]: → August 2, 2026
+                - generic [ref=e483]:
+                  - generic [ref=e484]: Strawflower King Size Orange
+                  - generic [ref=e485]: → July 19, 2026
+                - generic [ref=e486]:
+                  - generic [ref=e487]: Sweet Alyssum
+                  - generic [ref=e488]: → July 5, 2026
+                - generic [ref=e489]:
+                  - generic [ref=e490]: Lobelia Palace White
+                  - generic [ref=e491]: → August 16, 2026
+              - button "Accept Basket 1 →" [ref=e492] [cursor=pointer]
+            - generic [ref=e493]:
+              - img "Basket 2" [ref=e494]
+              - generic [ref=e495]:
+                - generic [ref=e496]: Basket 2
+                - generic [ref=e497]: 4 flowers
+              - generic [ref=e498]:
+                - generic [ref=e500]:
+                  - img "Statice Apricot Beauty" [ref=e501]
+                  - generic [ref=e502]: Thriller
+                  - generic [ref=e503]: Statice Apricot Beauty
+                  - button "⇄" [ref=e504] [cursor=pointer]
+                - generic [ref=e506]:
+                  - img "Marigold Yellow (Petite Gold)" [ref=e507]
+                  - generic [ref=e508]: Filler
+                  - generic [ref=e509]: Marigold Yellow (Petite Gold)
+                - generic [ref=e511]:
+                  - img "Morning Glory Pearly Gates (White)" [ref=e512]
+                  - generic [ref=e513]: Spiller
+                  - generic [ref=e514]: Morning Glory Pearly Gates (White)
+                - generic [ref=e516]:
+                  - img "Morning Glory Grandpa Ott (Purple)" [ref=e517]
+                  - generic [ref=e518]: Spiller
+                  - generic [ref=e519]: Morning Glory Grandpa Ott (Purple)
+              - generic [ref=e520]:
+                - generic [ref=e521]:
+                  - generic [ref=e522]: Statice Apricot Beauty
+                  - generic [ref=e523]: → August 2, 2026
+                - generic [ref=e524]:
+                  - generic [ref=e525]: Marigold Yellow (Petite Gold)
+                  - generic [ref=e526]: → July 12, 2026
+                - generic [ref=e527]:
+                  - generic [ref=e528]: Morning Glory Pearly Gates (White)
+                  - generic [ref=e529]: → July 26, 2026
+                - generic [ref=e530]:
+                  - generic [ref=e531]: Morning Glory Grandpa Ott (Purple)
+                  - generic [ref=e532]: → July 26, 2026
+              - button "Accept Basket 2 →" [ref=e533] [cursor=pointer]
+        - generic [ref=e534]:
+          - heading "🌑 Moody" [level=3] [ref=e535]
+          - generic [ref=e536]:
+            - generic [ref=e537]:
+              - img "Basket 1" [ref=e538]
+              - generic [ref=e539]:
+                - generic [ref=e540]: Basket 1
+                - generic [ref=e541]: 3 flowers
+              - generic [ref=e542]:
+                - generic [ref=e544]:
+                  - img "Celosia Sunday™ Mix" [ref=e545]
+                  - generic [ref=e546]: Thriller
+                  - generic [ref=e547]: Celosia Sunday™ Mix
+                  - button "⇄" [ref=e548] [cursor=pointer]
+                - generic [ref=e550]:
+                  - img "Petunia Easy Wave® Burgundy Velour" [ref=e551]
+                  - generic [ref=e552]: Spiller
+                  - generic [ref=e553]: Petunia Easy Wave® Burgundy Velour
+                  - button "⇄" [ref=e554] [cursor=pointer]
+                - generic [ref=e556]:
+                  - img "Petunia Easy Wave® Blue" [ref=e557]
+                  - generic [ref=e558]: Spiller
+                  - generic [ref=e559]: Petunia Easy Wave® Blue
+                  - button "⇄" [ref=e560] [cursor=pointer]
+              - generic [ref=e561]:
+                - generic [ref=e562]:
+                  - generic [ref=e563]: Celosia Sunday™ Mix
+                  - generic [ref=e564]: → August 2, 2026
+                - generic [ref=e565]:
+                  - generic [ref=e566]: Petunia Easy Wave® Burgundy Velour
+                  - generic [ref=e567]: → August 2, 2026
+                - generic [ref=e568]:
+                  - generic [ref=e569]: Petunia Easy Wave® Blue
+                  - generic [ref=e570]: → August 2, 2026
+              - button "Accept Basket 1 →" [ref=e571] [cursor=pointer]
+            - generic [ref=e572]:
+              - img "Basket 2" [ref=e573]
+              - generic [ref=e574]:
+                - generic [ref=e575]: Basket 2
+                - generic [ref=e576]: 3 flowers
+              - generic [ref=e577]:
+                - generic [ref=e579]:
+                  - img "Salvia Victoria Blue" [ref=e580]
+                  - generic [ref=e581]: Thriller
+                  - generic [ref=e582]: Salvia Victoria Blue
+                  - button "⇄" [ref=e583] [cursor=pointer]
+                - generic [ref=e585]:
+                  - img "Morning Glory Heavenly Blue" [ref=e586]
+                  - generic [ref=e587]: Spiller
+                  - generic [ref=e588]: Morning Glory Heavenly Blue
+                  - button "⇄" [ref=e589] [cursor=pointer]
+                - generic [ref=e591]:
+                  - img "Morning Glory Grandpa Ott (Purple)" [ref=e592]
+                  - generic [ref=e593]: Spiller
+                  - generic [ref=e594]: Morning Glory Grandpa Ott (Purple)
+                  - button "⇄" [ref=e595] [cursor=pointer]
+              - generic [ref=e596]:
+                - generic [ref=e597]:
+                  - generic [ref=e598]: Salvia Victoria Blue
+                  - generic [ref=e599]: → August 16, 2026
+                - generic [ref=e600]:
+                  - generic [ref=e601]: Morning Glory Heavenly Blue
+                  - generic [ref=e602]: → July 26, 2026
+                - generic [ref=e603]:
+                  - generic [ref=e604]: Morning Glory Grandpa Ott (Purple)
+                  - generic [ref=e605]: → July 26, 2026
+              - button "Accept Basket 2 →" [ref=e606] [cursor=pointer]
+        - generic [ref=e607]:
+          - heading "🌻 Joyful" [level=3] [ref=e608]
+          - generic [ref=e609]:
+            - generic [ref=e610]:
+              - img "Basket 1" [ref=e611]
+              - generic [ref=e612]:
+                - generic [ref=e613]: Basket 1
+                - generic [ref=e614]: 5 flowers
+              - generic [ref=e615]:
+                - generic [ref=e617]:
+                  - img "Celosia Sunday™ Mix" [ref=e618]
+                  - generic [ref=e619]: Thriller
+                  - generic [ref=e620]: Celosia Sunday™ Mix
+                - generic [ref=e622]:
+                  - img "Zinnia Double Zahara™ Fire" [ref=e623]
+                  - generic [ref=e624]: Filler
+                  - generic [ref=e625]: Zinnia Double Zahara™ Fire
+                  - button "⇄" [ref=e626] [cursor=pointer]
+                - generic [ref=e628]:
+                  - img "Impatiens Beacon Mix" [ref=e629]
+                  - generic [ref=e630]: Filler
+                  - generic [ref=e631]: Impatiens Beacon Mix
+                  - button "⇄" [ref=e632] [cursor=pointer]
+                - generic [ref=e634]:
+                  - img "Portulaca Happy Trails™" [ref=e635]
+                  - generic [ref=e636]: Spiller
+                  - generic [ref=e637]: Portulaca Happy Trails™
+                - generic [ref=e639]:
+                  - img "Morning Glory Scarlet O'Hara (Pink)" [ref=e640]
+                  - generic [ref=e641]: Spiller
+                  - generic [ref=e642]: Morning Glory Scarlet O'Hara (Pink)
+              - generic [ref=e643]:
+                - generic [ref=e644]:
+                  - generic [ref=e645]: Celosia Sunday™ Mix
+                  - generic [ref=e646]: → August 2, 2026
+                - generic [ref=e647]:
+                  - generic [ref=e648]: Zinnia Double Zahara™ Fire
+                  - generic [ref=e649]: → July 19, 2026
+                - generic [ref=e650]:
+                  - generic [ref=e651]: Impatiens Beacon Mix
+                  - generic [ref=e652]: → August 2, 2026
+                - generic [ref=e653]:
+                  - generic [ref=e654]: Portulaca Happy Trails™
+                  - generic [ref=e655]: → July 19, 2026
+                - generic [ref=e656]:
+                  - generic [ref=e657]: Morning Glory Scarlet O'Hara (Pink)
+                  - generic [ref=e658]: → July 26, 2026
+              - button "Accept Basket 1 →" [ref=e659] [cursor=pointer]
+            - generic [ref=e660]:
+              - img "Basket 2" [ref=e661]
+              - generic [ref=e662]:
+                - generic [ref=e663]: Basket 2
+                - generic [ref=e664]: 3 flowers
+              - generic [ref=e665]:
+                - generic [ref=e667]:
+                  - img "Snapdragon Twinny Peach" [ref=e668]
+                  - generic [ref=e669]: Thriller
+                  - generic [ref=e670]: Snapdragon Twinny Peach
+                - generic [ref=e672]:
+                  - img "Annual Phlox Dwarf Mix" [ref=e673]
+                  - generic [ref=e674]: Filler
+                  - generic [ref=e675]: Annual Phlox Dwarf Mix
+                  - button "⇄" [ref=e676] [cursor=pointer]
+                - generic [ref=e678]:
+                  - img "Strawflower King Size Orange" [ref=e679]
+                  - generic [ref=e680]: Filler
+                  - generic [ref=e681]: Strawflower King Size Orange
+                  - button "⇄" [ref=e682] [cursor=pointer]
+              - generic [ref=e683]:
+                - generic [ref=e684]:
+                  - generic [ref=e685]: Snapdragon Twinny Peach
+                  - generic [ref=e686]: → August 16, 2026
+                - generic [ref=e687]:
+                  - generic [ref=e688]: Annual Phlox Dwarf Mix
+                  - generic [ref=e689]: → July 19, 2026
+                - generic [ref=e690]:
+                  - generic [ref=e691]: Strawflower King Size Orange
+                  - generic [ref=e692]: → July 19, 2026
+              - button "Accept Basket 2 →" [ref=e693] [cursor=pointer]
