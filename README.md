@@ -52,8 +52,9 @@ npm run dev
 
 | Command | Description |
 | --- | --- |
-| `npm run dev` | Start the Vite dev server |
-| `npm run build` | Build for production |
+| `npm run dev` | Regenerate design tokens, then start the Vite dev server |
+| `npm run build` | Regenerate design tokens, then build for production |
+| `npm run tokens:build` | Regenerate `src/tokens/tokens.generated.css` from the Figma JSON exports |
 | `npm run preview` | Preview the production build locally |
 | `npm run lint` | Run ESLint |
 | `npm test` | Run Playwright end-to-end tests |
@@ -62,12 +63,17 @@ npm run dev
 ## Project structure
 
 ```
+scripts/
+  build-tokens.mjs    Generates tokens.generated.css from the Figma JSON exports
 src/
   components/       Landing, home, library, color system, and step components
   components/steps/ Builder wizard steps (mood, sow date, basket, schedule, congrats)
   data/             Flower, mood, and curated basket data
   hooks/            Shared React hooks
-  tokens/           Design tokens (primitives, semantic, numeric) as JSON + CSS
+  tokens/
+    primatives.json, semantic.json, number.json   Figma Variables exports (source of truth)
+    tokens.generated.css                          Generated CSS — do not hand-edit
+    tokens.css                                     Imports the generated file + a small hand-authored layer
   utils/            Schedule calculation, basket generation, PDF export
 public/
   flowers/, baskets/  Flower and basket imagery
