@@ -14,7 +14,7 @@ const ZONE = "9-10";
 const ROLE_LABEL = { upright: "Thriller", mounder: "Filler", trailer: "Spiller" };
 const SEASON_EMOJI = { spring: "🌱", summer: "☀️", autumn: "🍂", winter: "❄️" };
 
-// Added radix manual
+// Added radix example code
 function FlowerRow2({ flower, replacements, onSwap }) {
   return (
 	<Popover.Root>
@@ -64,7 +64,7 @@ function FlowerRow2({ flower, replacements, onSwap }) {
   );
 }
 
-//Claude generated update
+//Radix + App combined
 
 function FlowerRow({ flower, replacements, onSwap }) {
   const sameRoleBackups = replacements.filter((r) => r.role === flower.role);
@@ -166,19 +166,12 @@ function BasketCard({ basket, basketNum, replacements, sowDate, onAccept }) {
   );
 }
 
-function padTo5(flowerList) {
-  if (flowerList.length === 0) return flowerList;
-  const padded = [...flowerList];
-  while (padded.length < 5) padded.push(flowerList[0]);
-  return padded;
-}
-
 function resolveMoodGroup(moodId, season) {
   const entry = CURATED_BASKETS[moodId]?.[season] || { baskets: [], replacementIds: [] };
   return {
     baskets: entry.baskets.map((b) => ({
       image: b.image,
-      flowers: padTo5(b.flowerIds.map((id) => flowers.find((f) => f.id === id)).filter(Boolean)),
+      flowers: b.flowerIds.map((id) => flowers.find((f) => f.id === id)).filter(Boolean),
     })),
     replacements: entry.replacementIds
       .map((id) => flowers.find((f) => f.id === id))
