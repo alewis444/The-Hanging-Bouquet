@@ -3,146 +3,25 @@
    Source of truth: primatives.json · semantic.json · number.json
    ══════════════════════════════════════════════════════════ */
 
-/* ── Primitive Colors ──────────────────────────────────── */
+/* Primitives, per-theme surface/interactive pairs, shared semantic
+   tokens, spacing, radius, font-size, and font-weight are generated
+   from the Figma JSON exports — see scripts/build-tokens.mjs. Do not
+   hand-edit those values; edit the JSON and run `npm run tokens:build`. */
+@import './tokens.generated.css';
+
+/* For the current value of any token below (primitives, theme surface/
+   interactive pairs, semantic tokens) see the live /colors page
+   (src/components/ColorSystem.jsx) rather than a comment here — that
+   page reads the resolved CSS custom properties directly, so it can't
+   go stale the way a hand-written summary would. */
+
+/* ── App-level values ──────────────────────────────────── */
+/* Not Figma tokens: --white is a true #fff distinct from the off-white
+   primitives, --green-light is computed rather than stored, the shadows
+   have no Figma equivalent, and --radius is a single convenience alias. */
 :root {
-  --color-maroon:      #25030C;
-  --color-brown:       #604336;
-  --color-peach-100:   #ECAB80;
-  --color-peach-200:   #F3A26C;
-  --color-orange:      #FF7F49;
-  --color-purple:      #B5B2C0;
-  --color-white-100:   #E9E3D7;
-  --color-white-200:   #EBE4D1;
-  --color-green-100:   #827F42;
-  --color-green-200:   #64640B;
-  --color-pink-100:    #C14C55;
-  --color-pink-200:    #D44871;
-  --color-yellow:      #FCB837;
-  --color-black:       #000000;
-  --color-deep-purple: #220F87;
-  --color-gray:        #AEAEAE;
-}
-
-/* ── Spacing ───────────────────────────────────────────── */
-:root {
-  --spacing-8:   8px;
-  --spacing-12:  12px;
-  --spacing-16:  16px;
-  --spacing-20:  20px;
-  --spacing-24:  24px;
-  --spacing-28:  28px;
-  --spacing-32:  32px;
-  --spacing-40:  40px;
-  --spacing-63:  63px;
-  --spacing-73:  73px;
-  --spacing-80:  80px;
-  --spacing-112: 112px;
-  --spacing-116: 116px;
-  --spacing-120: 120px;
-  --spacing-126: 126px;
-  --spacing-132: 132px;
-  --spacing-176: 176px;
-  --spacing-270: 270px;
-  --spacing-369: 369px;
-  --spacing-400: 400px;
-}
-
-/* ── Radius ────────────────────────────────────────────── */
-:root {
-  --radius-sm:   8px;
-  --radius-md:   12px;
-  --radius-full: 9999px;
-}
-
-/* ── Typography ────────────────────────────────────────── */
-:root {
-  --font-size-xl:         96px;
-  --font-size-l:          75px;
-  --font-size-m:          58px;
-  --font-size-s:          25px;
-  --font-weight-regular:  400;
-  --font-weight-bold:     700;
-}
-
-/* ── Semantic: Shared ──────────────────────────────────── */
-:root {
-  --text-on-dark:  var(--color-white-100);  /* #E9E3D7 — on dark surfaces  */
-  --text-on-light: var(--color-black);      /* #000000 — on light surfaces */
-  --border-default: var(--color-gray);      /* #AEAEAE                     */
-}
-
-/* ── Semantic: Themes ──────────────────────────────────── */
-/*
-  Apply [data-theme="moody"] (or whichever) to a wrapper
-  element to activate that theme's surface + interactive pair.
-
-  Theme summary:
-    romantic   cream #EBE4D1 / rose #C14C55      ← default (light, neutral)
-    moody      maroon #25030C / pink #D44871      ← dark, dramatic
-    apothecary brown #604336 / peach #F3A26C      ← dark, warm
-    joyful     peach #ECAB80 / olive #64640B      ← light, warm
-    pollinator purple #B5B2C0 / deep-purple #220F87 ← light, cool
-    wild       sage #827F42 / orange #FF7F49      ← mid, earthy
-*/
-:root,
-[data-theme="romantic"] {
-  --surface-base:        var(--color-white-200);  /* #EBE4D1 */
-  --interactive-primary: var(--color-pink-100);   /* #C14C55 */
-}
-
-[data-theme="moody"] {
-  --surface-base:        var(--color-maroon);     /* #25030C */
-  --interactive-primary: var(--color-pink-200);   /* #D44871 */
-}
-
-[data-theme="apothecary"] {
-  --surface-base:        var(--color-brown);      /* #604336 */
-  --interactive-primary: var(--color-peach-200);  /* #F3A26C */
-}
-
-[data-theme="joyful"] {
-  --surface-base:        var(--color-peach-100);  /* #ECAB80 */
-  --interactive-primary: var(--color-green-200);  /* #64640B */
-}
-
-[data-theme="pollinator"] {
-  --surface-base:        var(--color-purple);      /* #B5B2C0 */
-  --interactive-primary: var(--color-deep-purple); /* #220F87 */
-}
-
-[data-theme="wild"] {
-  --surface-base:        var(--color-green-100);  /* #827F42 */
-  --interactive-primary: var(--color-orange);     /* #FF7F49 */
-}
-
-/* ── Legacy Aliases ────────────────────────────────────── */
-/*
-  These bridge the old hand-crafted variable names to new
-  token values so existing component CSS keeps working.
-  Migrate component files to the new names over time.
-
-  Notable changes from old values:
-    --cream:     #faf7f2 → #EBE4D1 (warmer, from white-200)
-    --parchment: #f2ede4 → #E9E3D7 (from white-100)
-    --bark:      #7a6350 → #604336 (true brown)
-    --border:    #ddd6cc → #AEAEAE (neutral gray)
-    --blush:     #e8c4c0 → #ECAB80 (peach-100)
-    --green:     #5a7a52 → var(--interactive-primary) (now theme-driven)
-    --text:      #3d3530 → #25030C (maroon, warmer near-black)
-    --text-muted:#7a6f68 → #604336 (brown)
-*/
-:root {
-  --cream:       var(--surface-base);
-  --parchment:   var(--color-white-100);
-  --blush:       var(--color-peach-100);
-  --bark:        var(--color-brown);
-  --border:      var(--color-gray);
   --white:       #ffffff;
-  --green:       var(--interactive-primary);
   --green-light: color-mix(in srgb, var(--interactive-primary) 55%, white);
-  --text:        var(--color-maroon);
-  --text-muted:  var(--color-brown);
-  --text-light:  var(--color-gray);
   --shadow-sm:   0 1px 4px rgba(0, 0, 0, 0.08);
   --shadow-md:   0 4px 16px rgba(0, 0, 0, 0.10);
   --radius:      var(--radius-md);

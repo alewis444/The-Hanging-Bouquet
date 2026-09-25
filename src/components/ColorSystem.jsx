@@ -1,20 +1,9 @@
-const PRIMITIVES = [
-  { name: "maroon",      value: "#25030C" },
-  { name: "brown",       value: "#604336" },
-  { name: "peach-100",   value: "#ECAB80" },
-  { name: "peach-200",   value: "#F3A26C" },
-  { name: "orange",      value: "#FF7F49" },
-  { name: "purple",      value: "#B5B2C0" },
-  { name: "white-100",   value: "#E9E3D7" },
-  { name: "white-200",   value: "#EBE4D1" },
-  { name: "green-100",   value: "#827F42" },
-  { name: "green-200",   value: "#64640B" },
-  { name: "pink-100",    value: "#C14C55" },
-  { name: "pink-200",    value: "#D44871" },
-  { name: "yellow",      value: "#FCB837" },
-  { name: "black",       value: "#000000" },
-  { name: "deep-purple", value: "#220F87" },
-  { name: "gray",        value: "#AEAEAE" },
+import { useEffect, useRef, useState } from "react";
+
+const PRIMITIVE_NAMES = [
+  "maroon", "brown", "peach-100", "peach-200", "orange", "purple",
+  "white-100", "white-200", "green-100", "green-200", "pink-100",
+  "pink-200", "yellow", "black", "deep-purple", "gray",
 ];
 
 const RADIUS = [
@@ -64,35 +53,20 @@ const SPACING = [
   8, 12, 16, 20, 24, 28, 32, 40, 63, 73, 80, 112, 116, 120, 126, 132, 176, 270, 369, 400,
 ];
 
-const THEMES = [
-  { id: "romantic",   surface: "#EBE4D1", interactive: "#C14C55" },
-  { id: "moody",      surface: "#25030C", interactive: "#D44871" },
-  { id: "apothecary", surface: "#604336", interactive: "#F3A26C" },
-  { id: "joyful",     surface: "#ECAB80", interactive: "#64640B" },
-  { id: "pollinator", surface: "#B5B2C0", interactive: "#220F87" },
-  { id: "wild",       surface: "#827F42", interactive: "#FF7F49" },
+const THEME_IDS = ["romantic", "moody", "apothecary", "joyful", "pollinator", "wild"];
+
+const SEMANTIC_TOKENS = [
+  { name: "text-on-dark",   cssVar: "--text-on-dark",   note: "on dark surfaces" },
+  { name: "text-on-light",  cssVar: "--text-on-light",  note: "on light surfaces" },
+  { name: "border-default", cssVar: "--border-default", note: "borders" },
 ];
 
-const SEMANTIC = [
-  { name: "text-on-dark",  value: "#E9E3D7", note: "on dark surfaces" },
-  { name: "text-on-light", value: "#000000", note: "on light surfaces" },
-  { name: "border-default",value: "#AEAEAE", note: "borders" },
-];
-
-function isDark(hex) {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return (r * 299 + g * 587 + b * 114) / 1000 < 128;
-}
-
-function Swatch({ color, label, sub }) {
-  const dark = isDark(color);
+function Swatch({ cssVar, label, resolvedValue, sub }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
       <div
         style={{
-          background: color,
+          background: `var(${cssVar})`,
           borderRadius: 8,
           height: 72,
           border: "1px solid rgba(0,0,0,0.08)",
@@ -102,7 +76,7 @@ function Swatch({ color, label, sub }) {
         {label}
       </span>
       <span style={{ fontSize: 11, color: "var(--color-brown)", fontFamily: "monospace" }}>
-        {color}
+        {resolvedValue || "…"}
       </span>
       {sub && (
         <span style={{ fontSize: 11, color: "var(--color-brown)" }}>{sub}</span>
@@ -111,9 +85,9 @@ function Swatch({ color, label, sub }) {
   );
 }
 
-function ThemeRow({ theme }) {
+function ThemeRow({ themeId, values, setRef }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+    <div ref={setRef} data-theme={themeId} style={{ display: "flex", alignItems: "center", gap: 16 }}>
       <span style={{
         width: 120,
         fontSize: 13,
@@ -121,26 +95,26 @@ function ThemeRow({ theme }) {
         color: "var(--color-maroon)",
         textTransform: "capitalize",
       }}>
-        {theme.id}
+        {themeId}
       </span>
       <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
         <div title="surface-base" style={{
           width: 48, height: 48, borderRadius: 8,
-          background: theme.surface,
+          background: "var(--surface-base)",
           border: "1px solid rgba(0,0,0,0.08)",
         }} />
         <div title="interactive-primary" style={{
           width: 48, height: 48, borderRadius: 8,
-          background: theme.interactive,
+          background: "var(--interactive-primary)",
           border: "1px solid rgba(0,0,0,0.08)",
         }} />
         <div style={{ display: "flex", gap: 8, marginLeft: 8 }}>
           <span style={{ fontSize: 11, color: "var(--color-brown)", fontFamily: "monospace" }}>
-            {theme.surface}
+            {values?.surface || "…"}
           </span>
           <span style={{ fontSize: 11, color: "var(--color-brown)" }}>surface</span>
           <span style={{ fontSize: 11, color: "var(--color-brown)", fontFamily: "monospace", marginLeft: 16 }}>
-            {theme.interactive}
+            {values?.interactive || "…"}
           </span>
           <span style={{ fontSize: 11, color: "var(--color-brown)" }}>interactive</span>
         </div>
@@ -150,6 +124,39 @@ function ThemeRow({ theme }) {
 }
 
 export default function ColorSystem() {
+  const [primitiveValues, setPrimitiveValues] = useState({});
+  const [semanticValues, setSemanticValues] = useState({});
+  const [themeValues, setThemeValues] = useState({});
+  const themeRefs = useRef({});
+
+  useEffect(() => {
+    const rootStyle = getComputedStyle(document.documentElement);
+
+    const prims = {};
+    PRIMITIVE_NAMES.forEach((name) => {
+      prims[name] = rootStyle.getPropertyValue(`--color-${name}`).trim();
+    });
+    setPrimitiveValues(prims);
+
+    const sems = {};
+    SEMANTIC_TOKENS.forEach(({ name, cssVar }) => {
+      sems[name] = rootStyle.getPropertyValue(cssVar).trim();
+    });
+    setSemanticValues(sems);
+
+    const themes = {};
+    THEME_IDS.forEach((id) => {
+      const el = themeRefs.current[id];
+      if (!el) return;
+      const s = getComputedStyle(el);
+      themes[id] = {
+        surface: s.getPropertyValue("--surface-base").trim(),
+        interactive: s.getPropertyValue("--interactive-primary").trim(),
+      };
+    });
+    setThemeValues(themes);
+  }, []);
+
   return (
     <div style={{
       maxWidth: 900,
@@ -161,7 +168,9 @@ export default function ColorSystem() {
         Primitive Color System
       </h2>
       <p style={{ color: "var(--color-brown)", marginBottom: 40, fontSize: 14 }}>
-        Source of truth for all colors used across The Hanging Bouquet.
+        Source of truth for all colors used across The Hanging Bouquet. Every swatch below
+        renders its actual CSS custom property live from tokens.css — nothing on this page
+        is a hardcoded hex value.
       </p>
 
       {/* Primitives */}
@@ -174,8 +183,13 @@ export default function ColorSystem() {
           gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))",
           gap: 20,
         }}>
-          {PRIMITIVES.map((c) => (
-            <Swatch key={c.name} color={c.value} label={c.name} />
+          {PRIMITIVE_NAMES.map((name) => (
+            <Swatch
+              key={name}
+              cssVar={`--color-${name}`}
+              label={name}
+              resolvedValue={primitiveValues[name]}
+            />
           ))}
         </div>
       </section>
@@ -274,8 +288,14 @@ export default function ColorSystem() {
           gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
           gap: 20,
         }}>
-          {SEMANTIC.map((c) => (
-            <Swatch key={c.name} color={c.value} label={c.name} sub={c.note} />
+          {SEMANTIC_TOKENS.map((t) => (
+            <Swatch
+              key={t.name}
+              cssVar={t.cssVar}
+              label={t.name}
+              resolvedValue={semanticValues[t.name]}
+              sub={t.note}
+            />
           ))}
         </div>
       </section>
@@ -289,8 +309,13 @@ export default function ColorSystem() {
           Each theme sets <code>--surface-base</code> and <code>--interactive-primary</code> via <code>data-theme</code>.
         </p>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          {THEMES.map((t) => (
-            <ThemeRow key={t.id} theme={t} />
+          {THEME_IDS.map((id) => (
+            <ThemeRow
+              key={id}
+              themeId={id}
+              values={themeValues[id]}
+              setRef={(el) => { themeRefs.current[id] = el; }}
+            />
           ))}
         </div>
       </section>

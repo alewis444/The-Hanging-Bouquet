@@ -2,14 +2,14 @@
 
 :root {
   font: 16px/1.6 system-ui, 'Gwendolyn', sans-serif;
-  color: var(--text);
-  background: var(--cream);
+  color: var(--color-maroon);
+  background: var(--surface-base);
   -webkit-font-smoothing: antialiased;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 
-body { margin: 0; background: var(--cream); }
+body { margin: 0; background: var(--surface-base); }
 
 #root {
   min-height: 100svh;
@@ -19,7 +19,7 @@ body { margin: 0; background: var(--cream); }
 
 h1, h2, h3 {
   font-weight: 600;
-  color: var(--text);
+  color: var(--color-maroon);
   margin: 0;
 }
 

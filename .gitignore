@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# generated from src/tokens/*.json — run `npm run tokens:build`
+src/tokens/tokens.generated.css
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
