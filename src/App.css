@@ -21,6 +21,12 @@
   font-weight: var(--font-weight-bold);
   margin: 0;
   line-height: 1;
+  color: var(--interactive-primary, var(--text));
+  transition: color 0.3s;
+}
+
+[data-theme="wild"] .site-header {
+  color: var(--interactive-primary);
 }
 
 
@@ -1157,9 +1163,17 @@
 }
 
 .landing-mood-name.active {
-  font-size: clamp(44px, 7vh, 72px);
+  font-size: clamp(52px, 8.5vh, 88px);
   font-weight: 700;
   color: var(--interactive-primary);
+}
+
+/* Joyful's olive accent (#64640B) is too close in luminance to its peach
+   surface (#ECAB80) to clear WCAG's 3:1 large-text minimum at its actual
+   position on the page — darken it for use as text (button/border uses of
+   --interactive-primary are untouched). */
+.landing[data-theme="joyful"] .landing-mood-name.active {
+  color: color-mix(in srgb, var(--interactive-primary) 65%, black);
 }
 
 .landing-mood-name.inactive {
@@ -1291,7 +1305,7 @@
 }
 
 .home-zone-sub {
-  color: var(--text-light);
+  color: var(--home-muted-text, var(--text-on-light));
   font-size: 13px;
 }
 
@@ -1340,7 +1354,7 @@
 .home-mood-label { font-size: 13px; }
 
 .home-mood-tagline {
-  color: var(--text-light);
+  color: var(--home-muted-text, var(--text-on-light));
   font-size: 13px;
   font-style: italic;
   margin: 0 0 20px 0;
@@ -1365,13 +1379,21 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: var(--text-light);
+  color: var(--home-muted-text, var(--text-on-light));
 }
 
 .home-date-arrow {
   font-size: 12px;
-  color: var(--text-light);
+  color: var(--home-muted-text, var(--text-on-light));
   padding-bottom: 10px;
+}
+
+/* Dark mood themes (moody/apothecary/wild) put a dark surface behind the
+   home page — flip these labels to light text so they stay readable. */
+[data-theme="moody"],
+[data-theme="apothecary"],
+[data-theme="wild"] {
+  --home-muted-text: var(--text-on-dark);
 }
 
 .home-season-pill {
