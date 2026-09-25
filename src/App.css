@@ -947,15 +947,17 @@
 
 /* ─── Landing Page ────────────────────────────────── */
 .landing {
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
   background: var(--surface-base);
-  padding: 40px 200px;
+  padding: clamp(20px, 3vh, 32px) 200px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: clamp(12px, 2.2vh, 24px);
   position: relative;
   overflow: hidden;
   transition: background 0.4s ease;
+  box-sizing: border-box;
 }
 
 /* Dark-theme text color override */
@@ -969,7 +971,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.55) 100%);
+  background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.35) 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -980,7 +982,8 @@
 .landing-hero {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: clamp(12px, 3vh, 32px);
+  flex-shrink: 0;
 }
 
 .landing-description {
@@ -997,7 +1000,7 @@
 .landing-title {
   font-family: 'Gwendolyn', cursive;
   font-weight: 700;
-  font-size: 96px;
+  font-size: clamp(64px, 11vh, 128px);
   color: var(--landing-text, var(--color-black));
   line-height: 1;
   margin: 0;
@@ -1008,13 +1011,14 @@
   display: flex;
   align-items: center;
   gap: 24px;
+  flex-shrink: 0;
 }
 
 .landing-plant-prompt {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 24px;
+  margin-top: clamp(12px, 2vh, 24px);
 }
 
 .landing-plant-label {
@@ -1086,7 +1090,7 @@
   font-family: 'Bellota Text', sans-serif;
   font-size: 18px;
   font-weight: 700;
-  color: var(--interactive-primary);
+  color: var(--landing-text, var(--color-black));
   background: none;
   border: none;
   cursor: pointer;
@@ -1104,12 +1108,15 @@
 .landing-mood-section {
   display: flex;
   gap: var(--spacing-73);
-  align-items: center;
+  align-items: stretch;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .landing-mood-list-wrap {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 16px;
   width: var(--spacing-369);
   flex-shrink: 0;
@@ -1150,13 +1157,13 @@
 }
 
 .landing-mood-name.active {
-  font-size: 72px;
+  font-size: clamp(44px, 7vh, 72px);
   font-weight: 700;
   color: var(--interactive-primary);
 }
 
 .landing-mood-name.inactive {
-  font-size: 40px;
+  font-size: clamp(26px, 4vh, 40px);
   font-weight: 400;
   color: var(--landing-text, var(--color-black));
   opacity: 0.8;
@@ -1168,10 +1175,15 @@
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  min-height: 0;
 }
 
 .landing-flower-img {
-  width: min(448px, 100%);
+  height: 100%;
+  max-height: 680px;
+  width: auto;
+  max-width: 100%;
   aspect-ratio: 746 / 1024;
   border-radius: 600px;
   object-fit: cover;
@@ -1184,6 +1196,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .landing-footer-body-wrap {
@@ -1204,7 +1217,7 @@
 
 .landing-footer-signature {
   font-family: 'Gwendolyn', cursive;
-  font-size: 40px;
+  font-size: 26px;
   font-weight: 400;
   color: var(--landing-text, var(--color-black));
   margin: 0;
@@ -1232,9 +1245,27 @@
   text-underline-offset: 3px;
   white-space: nowrap;
   flex-shrink: 0;
+  transition: color 0.2s, opacity 0.15s;
 }
 
 .builder-back-btn:hover { color: var(--text); }
+
+/* Dark mood themes (moody/apothecary/wild) put a dark surface behind the
+   builder header — the default maroon/brown text is unreadable there, so
+   switch to light text for contrast. */
+[data-theme="moody"] .builder-back-btn,
+[data-theme="apothecary"] .builder-back-btn,
+[data-theme="wild"] .builder-back-btn {
+  color: var(--color-white-100);
+  opacity: 0.85;
+}
+
+[data-theme="moody"] .builder-back-btn:hover,
+[data-theme="apothecary"] .builder-back-btn:hover,
+[data-theme="wild"] .builder-back-btn:hover {
+  color: var(--color-white-100);
+  opacity: 1;
+}
 
 /* ── Home Page ── */
 .home-page {
